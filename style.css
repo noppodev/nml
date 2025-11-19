@@ -1,0 +1,57 @@
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* On playground, body scroll is disabled via inline style in the HTML */
+
+.code-font {
+  font-family: 'Fira Code', monospace;
+}
+
+[data-lucide] {
+  width: 1em;
+  height: 1em;
+  display: inline-block; /* Ensure proper alignment */
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-y-2 {
+  transform: rotateY(2deg);
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+/* Chat Widget Icon Toggle */
+#chat-widget-button .chat-close-icon { display: none; }
+#chat-widget-button.is-open .chat-open-icon { display: none; }
+#chat-widget-button.is-open .chat-close-icon { display: block; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

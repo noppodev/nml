@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NML - Noppo Markup Language</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nml: {
+              blue: '#007bff',
+              green: '#42b983',
+              dark: '#1a1a1a',
+              light: '#f8f9fa'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-nml-green selection:text-white">
+
+  <!-- Header -->
+  <header id="page-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 group focus:outline-none">
+          <div class="w-10 h-10 bg-nml-green rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">N</div>
+          <span class="font-bold text-2xl tracking-tight text-slate-800 group-hover:text-nml-green transition-colors">NML</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="index.html#features" class="text-sm font-medium text-slate-600 hover:text-nml-green transition-colors focus:outline-none">特徴</a>
+          <a href="index.html#quick-start" class="text-sm font-medium text-slate-600 hover:text-nml-green transition-colors focus:outline-none">クイックスタート</a>
+          <a href="document.html" class="text-sm font-medium text-slate-600 hover:text-nml-green transition-colors focus:outline-none">ドキュメント</a>
+          <a href="playground.html" class="text-sm font-medium text-slate-600 hover:text-nml-green transition-colors focus:outline-none">プレイグラウンド</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+            <i data-lucide="menu" class="h-6 w-6"></i>
+            <i data-lucide="x" class="h-6 w-6 hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+      <div class="px-4 pt-2 pb-4 space-y-1">
+        <a href="index.html#features" class="block w-full text-left px-3 py-2 text-base font-medium text-slate-600 hover:text-nml-green hover:bg-slate-50 rounded-md focus:outline-none">特徴</a>
+        <a href="index.html#quick-start" class="block w-full text-left px-3 py-2 text-base font-medium text-slate-600 hover:text-nml-green hover:bg-slate-50 rounded-md focus:outline-none">クイックスタート</a>
+        <a href="document.html" class="block w-full text-left px-3 py-2 text-base font-medium text-slate-600 hover:text-nml-green hover:bg-slate-50 rounded-md focus:outline-none">ドキュメント</a>
+        <a href="playground.html" class="block w-full text-left px-3 py-2 text-base font-medium text-slate-600 hover:text-nml-green hover:bg-slate-50 rounded-md focus:outline-none">プレイグラウンド</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-white to-slate-50">
+      <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-nml-green/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-nml-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          <div class="text-center lg:text-left space-y-8">
+            <div class="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-600 shadow-sm hover:bg-slate-50 transition-colors cursor-pointer">
+              <span class="flex h-2 w-2 rounded-full bg-nml-green mr-2"></span>v1.0.0 is now available
+              <i data-lucide="chevron-right" class="ml-1 h-4 w-4 text-slate-400"></i>
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+              Noppo Markup Language:<br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-nml-green to-emerald-500">書いて、楽しい。</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              3つの言語を1つに。究極のWeb記述言語 NML。<br/>シンプルで、エレガントで、圧倒的にモダン。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="#quick-start" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-gradient-to-r from-nml-green to-emerald-500 hover:from-nml-green/90 hover:to-emerald-500/90 transform transition-transform duration-200 hover:scale-105">
+                始める <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+              </a>
+              <a href="document.html" class="inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-base font-medium rounded-full text-slate-700 bg-white hover:bg-slate-50 transform transition-transform duration-200 hover:scale-105">
+                ドキュメントを読む
+              </a>
+            </div>
+            <div class="pt-4 text-sm text-slate-500 flex items-center justify-center lg:justify-start gap-6">
+               <div class="flex items-center"><span class="font-bold text-slate-800 mr-1">MIT</span> License</div>
+               <div class="flex items-center"><span class="font-bold text-slate-800 mr-1">0</span> Dependency</div>
+            </div>
+          </div>
+          <div class="relative perspective-1000">
+             <div class="relative transform transition-transform duration-500 hover:rotate-y-2 hover:scale-[1.01]">
+                <div class="absolute -inset-1 bg-gradient-to-r from-nml-green to-nml-blue rounded-2xl blur opacity-30 animate-pulse"></div>
+                <div class="relative z-10 p-1 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-2xl border border-slate-700/50">
+                  <div class="px-4 py-2 border-b border-slate-700 flex items-center">
+                    <div class="flex space-x-2"><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="w-3 h-3 rounded-full bg-green-500"></span></div>
+                    <span class="flex-1 text-center text-xs text-slate-400">Counter.nml</span>
+                  </div>
+                  <div class="p-4 bg-[#1e1e1e] rounded-b-lg">
+<pre class="code-font text-sm overflow-x-auto"><code class="language-js text-slate-300"><span class="text-fuchsia-400">state</span> count = <span class="text-amber-300">0</span>
+
+<span class="text-sky-400">div</span><span class="text-slate-300">.container</span> {
+  <span class="text-yellow-300">style</span> {
+    <span class="text-emerald-300">text_align</span>: <span class="text-rose-400">"center"</span>
+    <span class="text-emerald-300">padding</span>: <span class="text-rose-400">"2rem"</span>
+  }
+
+  <span class="text-sky-400">h1</span> <span class="text-rose-400">"Count: "</span> count
+  
+  <span class="text-sky-400">button</span>(<span class="text-yellow-300">on</span>: <span class="text-emerald-300">click</span> { count.value += <span class="text-amber-300">1</span> }) {
+    <span class="text-yellow-300">style</span> {
+      <span class="text-emerald-300">background_color</span>: <span class="text-rose-400">"#42b983"</span>
+      <span class="text-emerald-300">color</span>: <span class="text-rose-400">"white"</span>
+    }
+    <span class="text-rose-400">"Increment"</span>
+  }
+}</code></pre>
+                  </div>
+                </div>
+             </div>
+             <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 hidden sm:block animate-bounce-slow">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-green-100 p-2 rounded-lg"><span class="text-2xl">🚀</span></div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase font-bold">Performance</p>
+                        <p class="text-sm font-bold text-slate-800">Lightning Fast</p>
+                    </div>
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-base text-nml-green font-semibold tracking-wide uppercase">Philosophy</h2>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-900 sm:text-4xl">開発者が「書く」ことに<br/>集中できる言語</p>
+          <p class="mt-4 max-w-2xl text-xl text-slate-500 lg:mx-auto">NMLは、Web開発の複雑さを取り除き、純粋な創造性を取り戻すために設計されました。</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="relative group bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-nml-green to-nml-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-t-2xl origin-left"></div>
+            <div class="flex items-center justify-center h-12 w-12 rounded-xl bg-nml-green shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300 text-white"><i data-lucide="layers"></i></div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-nml-green transition-colors">統合構文 (Unified Syntax)</h3>
+            <p class="text-slate-600 leading-relaxed">HTML、CSS、JavaScript を1つのファイル、1つの構文に統合。冗長なタグやコンテキストスイッチはもう必要ありません。Rubyのように直感的でエレガンスです。</p>
+          </div>
+          <div class="relative group bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-nml-green to-nml-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-t-2xl origin-left"></div>
+            <div class="flex items-center justify-center h-12 w-12 rounded-xl bg-nml-green shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300 text-white"><i data-lucide="zap"></i></div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-nml-green transition-colors">ビルトイン・リアクティビティ</h3>
+            <p class="text-slate-600 leading-relaxed">state 宣言をするだけで、NMLは変数の変更を追跡し、自動的にUIを更新します。複雑なDOM操作や仮想DOMのオーバーヘッドを意識する必要はありません。</p>
+          </div>
+          <div class="relative group bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-nml-green to-nml-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-t-2xl origin-left"></div>
+            <div class="flex items-center justify-center h-12 w-12 rounded-xl bg-nml-green shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300 text-white"><i data-lucide="box"></i></div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-nml-green transition-colors">スコープスタイル</h3>
+            <p class="text-slate-600 leading-relaxed">コンポーネント内で定義されたスタイルは、自動的にそのコンポーネント内にカプセル化されます。クラス名の衝突や、CSS設計の悪夢は過去のものです。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QuickStart Section -->
+    <section id="quick-start" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-7xl h-full opacity-10 pointer-events-none">
+         <div class="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full blur-[100px]"></div>
+         <div class="absolute bottom-20 right-20 w-64 h-64 bg-nml-green rounded-full blur-[100px]"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="text-3xl font-extrabold tracking-tight mb-6">数秒で始められます</h2>
+            <p class="text-slate-400 text-lg mb-10">NMLのCLIツールは軽量で、設定不要です。npm経由でインストールし、すぐにコーディングを開始できます。</p>
+            <div class="space-y-6">
+              <div class="bg-black/40 rounded-lg p-1 border border-slate-700">
+                <div class="flex items-center justify-between px-4 py-3">
+                  <div class="flex items-center font-mono text-sm text-slate-300">
+                    <i data-lucide="terminal" class="w-4 h-4 mr-3 text-nml-green"></i>
+                    <span class="mr-2 text-slate-500">$</span>
+                    <span id="install-cmd-text">npm i nml-compiler</span>
+                  </div>
+                  <button id="copy-button" class="p-2 rounded-md hover:bg-slate-700 text-slate-400 hover:text-white transition-colors focus:outline-none" aria-label="Copy command">
+                    <i data-lucide="copy" class="w-4 h-4"></i>
+                    <i data-lucide="check" class="w-4 h-4 hidden text-nml-green"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <h3 class="font-semibold text-white text-lg">Next Steps:</h3>
+                <ul class="space-y-3">
+                  <li class="flex items-center text-slate-300">
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-mono mr-3 text-nml-green">1</div>
+                    プロジェクトを作成: nml create my-app
+                  </li>
+                  <li class="flex items-center text-slate-300">
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-mono mr-3 text-nml-green">2</div>
+                    開発サーバーを起動: cd my-app && nml dev
+                  </li>
+                  <li class="flex items-center text-slate-300">
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-mono mr-3 text-nml-green">3</div>
+                    ビルド: nml build
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="mb-4 flex items-center justify-between">
+               <span class="text-sm font-medium text-slate-400">Hello World Example</span>
+               <span class="text-xs text-slate-600 bg-slate-800 px-2 py-1 rounded">App.nml</span>
+            </div>
+            <div class="p-1 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl shadow-2xl border-slate-600 shadow-2xl shadow-nml-green/10">
+              <div class="px-4 py-2 border-b border-slate-700 flex items-center">
+                <div class="flex space-x-2"><span class="w-3 h-3 rounded-full bg-red-500"></span><span class="w-3 h-3 rounded-full bg-yellow-500"></span><span class="w-3 h-3 rounded-full bg-green-500"></span></div>
+              </div>
+              <div class="p-4 bg-[#1e1e1e] rounded-b-lg">
+                <pre class="code-font text-sm"><code class="language-js text-slate-300"><span class="text-gray-500">// シンプルな構造</span>
+<span class="text-sky-400">div</span>(<span class="text-emerald-300">id</span>: <span class="text-rose-400">"app"</span>) {
+  <span class="text-sky-400">h1</span> <span class="text-rose-400">"Hello, NML!"</span>
+  <span class="text-sky-400">p</span> <span class="text-rose-400">"The future of web development."</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+        <div class="max-w-sm">
+           <a href="index.html" class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 bg-slate-900 rounded-md flex items-center justify-center text-white font-bold text-lg">N</div>
+              <span class="font-bold text-xl tracking-tight text-slate-900">NML</span>
+           </a>
+           <p class="text-slate-500 text-sm">NML (Noppo Markup Language) is a modern, concise web description language designed for developer happiness.</p>
+        </div>
+        <div class="flex gap-12">
+          <div>
+            <h3 class="font-semibold text-slate-900 mb-4">Product</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html#features" class="text-sm text-slate-500 hover:text-nml-green transition-colors text-left">特徴</a></li>
+              <li><a href="index.html#quick-start" class="text-sm text-slate-500 hover:text-nml-green transition-colors text-left">クイックスタート</a></li>
+              <li><a href="document.html" class="text-sm text-slate-500 hover:text-nml-green transition-colors text-left">ドキュメント</a></li>
+              <li><a href="playground.html" class="text-sm text-slate-500 hover:text-nml-green transition-colors text-left">プレイグラウンド</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-slate-400 text-sm">&copy; <span id="current-year"></span> Noppo Markup Language. All rights reserved.</p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+           <a href="#" class="text-slate-400 hover:text-slate-600 text-sm">Privacy</a>
+           <a href="#" class="text-slate-400 hover:text-slate-600 text-sm">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <button id="chat-widget-button" class="fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nml-green bg-gradient-to-r from-nml-green to-emerald-500" aria-label="Open NML AI Assistant">
+      <i data-lucide="message-circle" class="chat-open-icon w-6 h-6 text-white"></i>
+      <i data-lucide="x" class="chat-close-icon w-6 h-6 text-white"></i>
+  </button>
+
+  <div id="chat-widget-window" class="fixed bottom-24 right-6 z-50 w-[90vw] sm:w-[400px] h-[500px] bg-white rounded-2xl shadow-2xl border border-slate-100 flex flex-col transition-all duration-300 origin-bottom-right opacity-0 scale-95 -translate-y-10 pointer-events-none">
+      <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-4 flex items-center space-x-3 flex-shrink-0">
+          <div class="bg-white/10 p-2 rounded-lg"><i data-lucide="sparkles" class="w-5 h-5 text-nml-green"></i></div>
+          <div>
+              <h3 class="text-white font-bold text-sm">NML AI Assistant</h3>
+              <p class="text-slate-400 text-xs flex items-center">
+                  <span class="w-2 h-2 bg-nml-green rounded-full mr-2 animate-pulse"></span>Online & Connected
+              </p>
+          </div>
+      </div>
+      <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
+          <!-- Messages will be injected here -->
+      </div>
+      <div class="p-4 bg-white border-t border-slate-100 flex-shrink-0">
+          <form id="chat-form" class="relative">
+              <input type="text" id="chat-input" placeholder="コードを書いて、と頼んでみてください..." class="w-full bg-slate-50 text-slate-800 placeholder-slate-400 rounded-full pl-5 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-nml-green/50 focus:bg-white transition-all border border-slate-200" autocomplete="off">
+              <button type="submit" id="chat-submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-nml-green text-white rounded-full hover:bg-emerald-600 disabled:opacity-50 disabled:hover:bg-nml-green transition-colors">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+          </form>
+      </div>
+  </div>
+
+
+  <script type="module" src="main.js"></script>
+  <script type="module" src="chat-widget.js"></script>
+</body>
+</html>
